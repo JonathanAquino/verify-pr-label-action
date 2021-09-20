@@ -8,6 +8,9 @@ This action will verify if a pull request has at least one label from a set of v
 
 To prevent the merging of an invalid pull request, this action uses either the standard pull request workflow or the status of the GitHub Action check.
 
+This is a fork of jesusvasquez333/verify-pr-label-action to guard against malicious code
+ever being introduced by the original author.
+
 ### Using the standard pull request workflow
 
 By default, this action uses the standard pull request workflow. In this mode, if the pull request does not contain a label from the set of valid labels, or contains a label from the set of invalid labels, then the action will create a pull request review using the event `REQUEST_CHANGES`; independent reviews are generated for both cases. Otherwise, the action will instead create a pull request review using the event `APPROVE`. In both of these cases the exit code will be `0`, and the GitHub Action check will always succeed.
